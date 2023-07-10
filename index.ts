@@ -22,8 +22,7 @@ const path = Buffer.from("/tmp/xd\0");
 const data = symbols.initSocket(path);
 
 const callback = new JSCallback((fd: number) => {
-    const stats = fstatSync(fd);
-    const buff = Buffer.alloc(stats.size);
+    const buff = Buffer.alloc(1024);
 
     const _ = readSync(fd, buff);
     console.log(buff.toString("utf8"));
@@ -31,7 +30,7 @@ const callback = new JSCallback((fd: number) => {
     closeSync(fd);
 }, {
     args: [FFIType.int],
-    threadsafe: false
+    threadsafe: true
 });
 
 symbols.runServer(data, callback.ptr!);
