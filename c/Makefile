@@ -1,4 +1,4 @@
-CC = gcc
+CC = g++
 CFLAGS = -Wall -Werror -fpic
 LDFLAGS = -shared
 LIBRARY_NAME = libsockets.so
@@ -7,7 +7,7 @@ LIBRARY_NAME = libsockets.so
 
 all: $(LIBRARY_NAME)
 
-$(LIBRARY_NAME): sockets.c
+$(LIBRARY_NAME): sockets.cpp
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:

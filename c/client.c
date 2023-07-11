@@ -4,7 +4,7 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-#define SOCKET_PATH "/tmp/xd"
+#define SOCKET_PATH "/tmp/lol"
 
 int main() {
     // Create the socket
